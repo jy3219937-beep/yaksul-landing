@@ -90,10 +90,15 @@ em { font-style: normal; color: var(--gold); }
   letter-spacing: 0.02em;
 }
 .brand-name {
-  font-size: 14px;
-  letter-spacing: 0.04em;
+  font-size: 13.5px;
+  letter-spacing: 0.02em;
   color: #efe7d6;
   font-weight: 500;
+  white-space: nowrap;
+}
+@media (max-width: 540px) {
+  .brand-name { font-size: 12px; }
+  .brand-name em { display: none; }
 }
 .brand-name em {
   font-family: var(--serif);
@@ -905,6 +910,7 @@ em { font-style: normal; color: var(--gold); }
   position: relative;
   counter-reset: t;
 }
+.timeline--3 { grid-template-columns: repeat(3, 1fr); }
 .timeline::before {
   content: "";
   position: absolute;
