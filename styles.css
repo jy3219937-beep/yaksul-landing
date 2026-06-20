@@ -1344,123 +1344,173 @@ em { font-style: normal; color: var(--gold); }
 .footer-meta { display: flex; flex-direction: column; gap: 4px; font-size: 13px; text-align: right; }
 @media (max-width: 640px) { .footer-meta { text-align: left; } }
 
-/* ============================== TEACHER ============================== */
+/* ============================== TEACHERS ============================== */
 .section-teacher {
   background:
-    radial-gradient(circle at 15% 30%, rgba(201,166,107,0.08), transparent 50%),
+    radial-gradient(circle at 15% 20%, rgba(201,166,107,0.08), transparent 55%),
+    radial-gradient(circle at 85% 80%, rgba(138,45,59,0.05), transparent 55%),
     linear-gradient(180deg, #f6f1e9 0%, #fbf7f0 100%);
-  padding: 130px 28px 130px;
+  padding: 130px 28px;
 }
-.teacher-grid {
+
+.teachers-grid {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 80px;
-  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
 }
+
+.teacher-card {
+  background: #fff;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 18px 44px rgba(17, 20, 27, 0.06);
+  transition: transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+}
+.teacher-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-line);
+  box-shadow: 0 28px 70px rgba(17, 20, 27, 0.12);
+}
+
 .teacher-photo {
   margin: 0;
   position: relative;
-  aspect-ratio: 4 / 5;
-  border-radius: var(--radius-l);
+  aspect-ratio: 4 / 3.2;
   overflow: hidden;
   background: #d8d2c3;
-  box-shadow:
-    0 30px 80px rgba(17, 20, 27, 0.18),
-    0 6px 18px rgba(17, 20, 27, 0.08);
 }
 .teacher-photo img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 20%;
   filter: contrast(1.02) saturate(0.95);
   transition: transform 1.2s ease;
 }
-.teacher-photo:hover img { transform: scale(1.03); }
+.teacher-card:hover .teacher-photo img { transform: scale(1.04); }
 .teacher-photo-frame {
-  position: absolute; inset: 14px;
-  border: 1px solid rgba(255,255,255,0.5);
+  position: absolute; inset: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: calc(var(--radius-l) - 10px);
   pointer-events: none;
 }
+.teacher-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(13, 15, 20, 0.55) 100%);
+  pointer-events: none;
+}
+
+/* 좌측 하단 캡션 (강사명) */
 .teacher-tag {
   position: absolute;
-  bottom: 28px; left: 28px;
-  padding: 8px 16px;
-  background: rgba(13, 15, 20, 0.7);
+  bottom: 22px;
+  left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 1;
+}
+.teacher-tag em {
+  font-family: var(--serif);
+  font-style: italic;
   color: var(--gold-2);
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 14px;
-  border-radius: 999px;
-  letter-spacing: 0.04em;
-  backdrop-filter: blur(6px);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
-
-.teacher-info { padding-right: 24px; }
-.teacher-info .section-title { margin-top: 18px; font-size: clamp(28px, 3.8vw, 44px); }
-.teacher-lead {
-  margin-top: 26px;
-  color: var(--ink-2);
-  font-size: 16.5px;
-  line-height: 1.85;
-}
-
-.teacher-cv {
-  margin-top: 36px;
-  border-top: 1px solid var(--line-dark);
-}
-.teacher-cv li {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--line-dark);
-}
-.cv-when {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 22px;
-  color: var(--gold);
-  text-align: center;
-  font-weight: 500;
-}
-.cv-what {
-  font-size: 16px;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-}
-.cv-what em {
-  color: var(--gold);
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 600;
-  font-size: 1.06em;
-}
-.cv-hi .cv-what {
+.teacher-tag .teacher-name {
+  color: #fff;
+  font-size: 26px;
   font-weight: 700;
-  font-size: 17px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.teacher-tag .teacher-affil {
+  color: #d6d0c1;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+}
+
+.teacher-body {
+  padding: 28px 30px 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .teacher-quote {
-  margin: 32px 0 0;
-  padding: 22px 26px;
+  margin: 0 0 24px;
+  padding: 18px 22px;
   border-left: 3px solid var(--gold);
   background: rgba(201, 166, 107, 0.08);
   color: var(--ink);
   font-family: var(--serif);
   font-style: italic;
   font-size: 19px;
-  line-height: 1.6;
+  line-height: 1.55;
   border-radius: 4px;
+  letter-spacing: -0.01em;
 }
 
-@media (max-width: 960px) {
-  .teacher-grid { grid-template-columns: 1fr; gap: 40px; }
-  .teacher-photo { max-width: 420px; margin: 0 auto; }
-  .teacher-info { padding-right: 0; text-align: center; }
-  .teacher-cv { text-align: left; max-width: 480px; margin: 36px auto 0; }
-  .teacher-quote { text-align: left; }
+.teacher-cv {
+  border-top: 1px solid var(--line-dark);
+  margin: 0;
+}
+.teacher-cv li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  align-items: baseline;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+.teacher-cv li:last-child { border-bottom: none; }
+.cv-when {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--gold);
+  text-align: center;
+  font-weight: 500;
+}
+.cv-what {
+  font-size: 14.5px;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  line-height: 1.55;
+}
+.cv-what em {
+  color: var(--gold);
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.04em;
+  margin-left: 2px;
+}
+.cv-since {
+  display: inline-block;
+  margin-left: 6px;
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink-3);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+.cv-hi .cv-what {
+  font-weight: 700;
+  font-size: 15.5px;
+}
+
+@media (max-width: 1024px) {
+  .teachers-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .teachers-grid { grid-template-columns: 1fr; }
+  .teacher-tag .teacher-name { font-size: 22px; }
 }
 
 /* ============================== GR831 ============================== */
