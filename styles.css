@@ -1591,6 +1591,40 @@ em { font-style: normal; color: var(--gold); }
   display: inline-block;
   margin-top: 4px;
 }
+
+.session-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+  transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.session-link:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-line);
+  background: rgba(201, 166, 107, 0.08);
+  box-shadow: 0 18px 40px rgba(201, 166, 107, 0.16);
+}
+.session-apply {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold-2);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  transition: gap .25s ease, color .25s ease;
+}
+.session-link:hover .session-apply {
+  gap: 10px;
+  color: var(--gold);
+}
+.session-apply svg { transition: transform .25s ease; }
+.session-link:hover .session-apply svg { transform: translateX(2px); }
+
 @media (max-width: 720px) {
   .session-grid--3 { grid-template-columns: 1fr; }
 }
