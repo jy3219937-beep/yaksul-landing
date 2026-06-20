@@ -36,7 +36,7 @@
 
   // ---------- 2. reveal on scroll ----------
   const revealTargets = document.querySelectorAll(
-    '.section-head, .compare-card, .callout, .why-card, .uni, .persona, .pillar, .trend, .cohort, .voice, .t-item, .program, .timetable, .faq details, .cta-card, .teacher-photo, .teacher-info, .gr-mark, .gr-trend, .wall-item, .summer-band'
+    '.section-head, .compare-card, .callout, .why-card, .uni, .persona, .pillar, .trend, .cohort, .voice, .t-item, .program, .timetable, .faq details, .cta-card, .teacher-photo, .teacher-info, .gr-mark, .gr-trend, .wall-item, .summer-band, .materials-head, .material, .materials-foot'
   );
   revealTargets.forEach((el, i) => {
     el.classList.add('reveal');
